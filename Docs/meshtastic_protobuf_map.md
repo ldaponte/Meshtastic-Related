@@ -17,7 +17,7 @@
 |33|IP_TUNNEL_APP|IPPacket|mesh.proto|Facilitates the Python IP tunnel feature; payload is an IP packet.|
 |34|PAXCOUNTER_APP|Paxcounter|mesh.proto|Integrates Paxcounter library within the firmware.|
 |64|SERIAL_APP|SerialData|mesh.proto|Offers a hardware serial interface for sending and receiving data over the Meshtastic network.|
-|65|STORE_FORWARD_APP|StoreForward|storeforward.proto|Work in progress: Implements store and forward functionality.|
+|65|STORE_FORWARD_APP|StoreAndForward|storeforward.proto|Work in progress: Implements store and forward functionality.|
 |66|RANGE_TEST_APP|RangeTest|mesh.proto|Optional port for messages related to the range test module.|
 |67|TELEMETRY_APP|Telemetry|mesh.proto|Provides a format to send and receive telemetry data within the Meshtastic network.|
 |68|ZPS_APP|ZPS|mesh.proto|Experimental tools for estimating node position without GPS.|

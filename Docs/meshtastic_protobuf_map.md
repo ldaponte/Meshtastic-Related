@@ -2,7 +2,7 @@
 
 |Port Number|Protobuf|Message Name|Protobuf File|Definition Purpose|
 |-|-|-|-|-|
-|0|UNKNOWN_APP|NA|does not map to a proto file|	Deprecated: Previously used for messages from external devices in an unrecognized format.|
+|0|UNKNOWN_APP|Does not map to a message name|Does not map to a proto file|	Deprecated: Previously used for messages from external devices in an unrecognized format.|
 |1|TEXT_MESSAGE_APP|MeshPacket|mesh.proto|Simple UTF-8 text messages for basic communication.|
 |2|REMOTE_HARDWARE_APP|HardwareMessage|remote_hardware.proto|Reserved for built-in GPIO/example applications; see remote_hardware.proto for details.|
 |3|POSITION_APP|Position|mesh.proto|Transmits GPS position updates; payload is a Position message.|

@@ -22,7 +22,7 @@
 |67|TELEMETRY_APP|Telemetry|mesh.proto|Provides a format to send and receive telemetry data within the Meshtastic network.|
 |68|ZPS_APP|ZPS|mesh.proto|Experimental tools for estimating node position without GPS.|
 |69|SIMULATOR_APP|Simulator|mesh.proto|Allows multiple instances of Linux native applications to communicate as if using their LoRa chip.|
-|70|TRACEROUTE_APP|Traceroute|mesh.proto|Offers traceroute functionality to display the route a packet takes towards a specific destination within the mesh.|
+|70|TRACEROUTE_APP|RouteDiscovery|mesh.proto|Offers traceroute functionality to display the route a packet takes towards a specific destination within the mesh.|
 |71|NEIGHBORINFO_APP|NeighborInfo|mesh.proto|Aggregates edge information by sending out a list of each node’s neighbors.|
 |72|ATAK_PLUGIN|AtakPlugin|mesh.proto|Port number for payloads from the official Meshtastic ATAK plugin.|
 |73|MAP_REPORT_APP|MapReport|mesh.proto|Provides unencrypted information about a node for consumption by a map via MQTT.|

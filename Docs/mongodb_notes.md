@@ -1,5 +1,11 @@
 # mongosh queries
 
+## connecting to mongodb
+mongosh mongodb://<database user>:<database password>@<hostname:27017/<database name>
+
+## search for dates
+db.getCollection('meshtastic-bcp2').find({receivedDate: {$gte:"2025-01-23T01:20:27.412Z"}})
+
 ## find with filter and show only select fields in the output
 db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'},{'payload.packet.decoded.payload':1,'payload.channelId':1, '_id':0})
 

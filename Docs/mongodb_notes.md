@@ -1,4 +1,4 @@
-# mongosh queries
+# mongosh query examples
 
 ## connecting to mongodb
 mongosh mongodb://<database user>:<database password>@<hostname:27017/<database name>

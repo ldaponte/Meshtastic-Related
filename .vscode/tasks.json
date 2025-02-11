@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Docker: Run interactive container",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--env-file",
+                "./Container/app.env",
+                "--rm", // Remove container when done
+                "-it", // Interactive mode
+                "meshtasticrelated:v11", // Docker image to use (replace with your image)
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Docker Image (AMD64)",
+            "type": "docker-build",
+            "platform": "linux/amd64",
+            "dockerBuild": [
+                "-t",
+                "my-image",
+                "."
+            ]
+        },
+        {
+            "label": "Build Docker Image",
+            "type": "docker-build",
+            "dockerBuild": {
+                "context": "./Container",
+                "dockerfile": "./Container/Dockerfile",
+                "tag": "meshtasticrelated:v11"
+            }
+        },
+        {
+            "label": "Run My Container",
+            "type": "docker-run",
+            "dockerRun": {
+                "image": "meshtasticrelated:v11",
+                "env": {
+                    "MESHTASTIC_HOST": "",
+                    "MQTT_HOST": "",
+                    "MQTT_PASSWORD": "",
+                    "MQTT_TOPIC": "",
+                    "MQTT_USER": "",
+                    "PYTHONUNBUFFERED": ""
+                },
+                "args": ["--rm","-it"], // Optional: Login shell
+                "options": ["--rm","-it"] // Interactive TTY
+            }
+        }
+    ]
+}

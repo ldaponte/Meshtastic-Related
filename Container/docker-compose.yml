@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mqtt-client:
+    env_file: "app.env"
+    platform: linux/amd64
+    build: .
+    container_name: mqtt-python-client
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python", "send_meshtastic_messages.py"]
+
+dependencies:
+  - dockerfile

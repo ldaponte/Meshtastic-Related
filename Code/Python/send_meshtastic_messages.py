@@ -5,7 +5,6 @@ import meshtastic
 import meshtastic.tcp_interface
 from pubsub import pub
 
-# mqtt_client = None
 
 def onReceive(packet, interface): # called when a packet arrives
     mqtt_message = meshtastic.util.message_to_json(packet["raw"], multiline=True)

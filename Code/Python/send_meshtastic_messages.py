@@ -42,6 +42,7 @@ def on_disconnect(client, userdata, disconnect_flags, reason_code, properties):
         print(f"Unexpected disconnection, return code {reason_code}")
         # Implement reconnection logic here if needed
         # client.reconnect()
+        # reconnect is automatic
 
 retry_timeout = os.getenv('MESHTASTIC_RECONNECT_TIMEOUT')
 

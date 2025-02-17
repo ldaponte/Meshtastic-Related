@@ -1,5 +1,8 @@
 # mongosh query examples
 
+## links
+https://developerslogblog.wordpress.com/2019/10/15/mongodb-how-to-filter-by-multiple-fields/
+
 ## connecting to mongodb
 mongosh mongodb://<database user>:<database password>@<hostname:27017/<database name>
 
@@ -27,3 +30,8 @@ use meshtastic-bcp2
 ## show all collections
 show collections
 
+## multiple criteria
+db.getCollection('meshtastic-bcp2').find({
+    'payload.packet.decoded.portnum': 'NODEINFO_APP',
+    'receivedDate': {$gte:"2025-02-17T06:50:00.000Z"}
+})

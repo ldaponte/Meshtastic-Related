@@ -3,7 +3,6 @@ version: '3.8'
 services:
   mqtt-client:
     env_file: "app.env"
-    platform: linux/amd64
     build: .
     container_name: mqtt-python-client
     volumes:

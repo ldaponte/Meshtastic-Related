@@ -2,20 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Docker: Run interactive container",
-            "type": "shell",
-            "command": "docker",
-            "args": [
-                "run",
-                "--env-file",
-                "./Container/app.env",
-                "--rm", // Remove container when done
-                "-it", // Interactive mode
-                "meshtasticrelated:v11", // Docker image to use (replace with your image)
-            ],
-            "problemMatcher": []
-        },
-        {
+            // platform attribute not resulting in AMD64 image
             "label": "Build Docker Image (AMD64)",
             "type": "docker-build",
             "platform": "linux/amd64",
@@ -35,6 +22,7 @@
             }
         },
         {
+            // Environment variables not being passed to docker run
             "label": "Run My Container",
             "type": "docker-run",
             "dockerRun": {
@@ -44,7 +32,8 @@
             }
         },
         {
-            "label": "Run Larry Docker Container",
+            // Use this for running meshtastic + environment variables
+            "label": "Run Docker Container",
             "type": "shell",
             "command": "docker",
             "args": [

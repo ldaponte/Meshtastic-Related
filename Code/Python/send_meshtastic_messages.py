@@ -8,7 +8,7 @@ from pubsub import pub
 
 def onReceive(packet, interface): # called when a packet arrives
     mqtt_message = meshtastic.util.message_to_json(packet["raw"], multiline=True)
-    print("received message:", len(mqtt_message))
+    print("received message size:", len(mqtt_message))
     mqtt_client.publish(mqtt_topic, mqtt_message, qos=2)
     print(f"Current mqtt outbound queue size: {len(mqtt_client._out_messages)}")
 

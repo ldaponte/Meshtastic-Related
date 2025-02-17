@@ -22,16 +22,6 @@
             }
         },
         {
-            // Environment variables not being passed to docker run
-            "label": "Run My Container",
-            "type": "docker-run",
-            "dockerRun": {
-                "image": "meshtasticrelated:v12",
-                "args": ["--rm","-it","--env-file app.env"], // Optional: Login shell
-                "options": ["--rm","-it"] // Interactive TTY
-            }
-        },
-        {
             // Use this for running meshtastic + environment variables
             "label": "Run Docker Container",
             "type": "shell",

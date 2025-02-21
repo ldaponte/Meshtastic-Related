@@ -35,3 +35,16 @@ db.getCollection('meshtastic-bcp2').find({
     'payload.packet.decoded.portnum': 'NODEINFO_APP',
     'receivedDate': {$gte:"2025-02-17T06:50:00.000Z"}
 })
+
+## random queries
+db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.payload.shortName': 'BCP3'})
+db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'NODEINFO_APP', receivedDate: {$gte:"2025-02-21T04:08:27.422Z"}})
+
+db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 579358746},{'payload.packet.decoded.portnum':1,'payload.channelId':1, '_id':0})
+
+db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'},{'payload.packet.decoded.payload':1,'payload.channelId':1, '_id':0})
+
+db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.payload.shortName': /BCP/},{'payload.packet.decoded.payload.shortName':1, 'payload.packet.decoded.portnum':1, 'payload.packet.decoded.payload.longName':1, 'payload.packet.from':1})
+
+db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 579358746},{'payload.packet.decoded.payload.shortName':1, 'payload.packet.decoded.portnum':1, 'payload.packet.decoded.payload.longName':1, 'payload.packet.from':1})
+

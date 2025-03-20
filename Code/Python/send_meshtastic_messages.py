@@ -7,10 +7,14 @@ from pubsub import pub
 
 
 def onReceive(packet, interface): # called when a packet arrives
+
+    global session_message_count
+
+    session_message_count += 1
+
     mqtt_message = meshtastic.util.message_to_json(packet["raw"], multiline=True)
-    print("received message size:", len(mqtt_message))
     mqtt_client.publish(mqtt_topic, mqtt_message, qos=2)
-    print(f"Current mqtt outbound queue size: {len(mqtt_client._out_messages)}")
+    print(f"Session message count: {session_message_count}, message size: {len(mqtt_message)}, mqtt outbound queue size: {len(mqtt_client._out_messages)}")
 
 def onConnection(interface, topic=pub.AUTO_TOPIC): # called when we (re)connect to the radio
     # defaults to broadcast, specify a destination ID if you wish
@@ -40,6 +44,8 @@ def on_disconnect(client, userdata, disconnect_flags, reason_code, properties):
     print("Disconnected from MQTT Broker")
     if reason_code != 0:
         print(f"Unexpected disconnection, return code {reason_code}")
+
+session_message_count = 0
 
 retry_timeout = os.getenv('MESHTASTIC_RECONNECT_TIMEOUT')
 
@@ -75,7 +81,6 @@ interface = None
 while True:
     try:
         interface = meshtastic.tcp_interface.TCPInterface(hostname=meshtastic_host)
-
         break
     except Exception as e:
         print("error:", e)

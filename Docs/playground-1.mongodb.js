@@ -13,7 +13,7 @@ https://developerslogblog.wordpress.com/2019/10/15/mongodb-how-to-filter-by-mult
 mongosh mongodb://<database user>:<database password>@<hostname:27017/<database name>
 
 // search for dates
-db.getCollection('meshtastic-bcp2').find({receivedDate: {$gte:"2025-03-28T05:35:29.274Z"}})
+db.getCollection('meshtastic-bcp2').find({receivedDate: {$gte:"2025-04-09T18:46:29.274Z"}})
 
 // find with filter and show only select fields in the output
 db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'},{'payload.packet.decoded.payload':1,'payload.channelId':1, '_id':0})
@@ -66,7 +66,7 @@ db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 1127935220, 'pa
 db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 4294967295})
 
 //----
-db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.payload': /Copy W Seattle/});
+db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.payload': /915MHz/});
 
 
 //----
@@ -88,7 +88,9 @@ db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.payload.shortN
 
 db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'NODEINFO_APP', receivedDate: {$gte:"2025-02-21T04:08:27.422Z"}})
 
-db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 579358746},{'payload.packet.decoded.portnum':1,'payload.channelId':1, '_id':0})
+db.getCollection('meshtastic-bcp2').find({'payload.packet.from': 579358746},{'payload.packet.decoded.portnum':1,'payload.channelId':1, '_id':2})
+
+db.getCollection('meshtastic-bcp2').find({'payload.channelId': 0}).limit(3)
 
 db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'},{'payload.packet.decoded.payload':1,'payload.channelId':1, '_id':0})
 

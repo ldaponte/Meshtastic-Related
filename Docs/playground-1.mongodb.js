@@ -13,7 +13,7 @@ https://developerslogblog.wordpress.com/2019/10/15/mongodb-how-to-filter-by-mult
 mongosh mongodb://<database user>:<database password>@<hostname:27017/<database name>
 
 // search for dates
-db.getCollection('meshtastic-bcp2').find({receivedDate: {$gte:"2025-04-09T18:46:29.274Z"}})
+db.getCollection('meshtastic-bcp2').find({receivedDate: {$gte:"2025-04-13T02:45:29.274Z"}, 'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'})
 
 // find with filter and show only select fields in the output
 db.getCollection('meshtastic-bcp2').find({'payload.packet.decoded.portnum': 'TEXT_MESSAGE_APP'},{'payload.packet.decoded.payload':1,'payload.channelId':1, '_id':0})
